@@ -26,15 +26,17 @@ define(function() {
     };
     
     e.getTypeName = function(value) {
+        if (value === null) {
+            return "null";
+        }
         var t = typeof value;
         switch(t) {
             case "function":
             case "object":
-                if (value === null) {
-                    return "null";
-                } else if (value.constructor) {
+                 if (value.constructor) {
                     return value.constructor.name;
                 } else {
+                    // fallback, just in case
                     return Object.prototype.toString.call(value);
                 }
             default:
