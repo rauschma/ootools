@@ -22,7 +22,7 @@ define(function() {
         // At the very least, we keep the "constructor" property
         // At most, we preserve additions that have already been made
         e.copyOwnFrom(subProto, subC.prototype);
-        sub.prototype = subProto;
+        subC.prototype = subProto;
     };
     
     e.getTypeName = function(value) {
